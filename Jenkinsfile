@@ -8,6 +8,7 @@ pipeline {
           docker run -d --name nginx-test -p 58080:80 \
           -v `pwd`/conf:/etc/nginx/conf.d:z \
           -v `pwd`/html:/usr/share/nginx/html:z \
+          -v /var/jenkins_home:/var/jenkins_home \
           nginx
           """
         }
