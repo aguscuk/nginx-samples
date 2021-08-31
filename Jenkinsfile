@@ -6,9 +6,11 @@ pipeline {
           sh """
           docker rm -f nginx-test
           docker run -d --name nginx-test -p 58080:80 \
-          -v `pwd`/conf:/etc/nginx/conf.d:z \
-          -v `pwd`/html:/usr/share/nginx/html:z \
+          -v `pwd`/conf:/etc/nginx/conf.d \
+          -v `pwd`/html:/usr/share/nginx/html \
           nginx
+          docker exec nginx-test ls -ltrha /usr/share/nginx/html
+          docker exec nginx-test ls -ltrha /etc/nginx/conf.d
           """
         }
     }
