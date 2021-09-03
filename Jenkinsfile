@@ -2,6 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build Docker'){
+    agent {
+      label 'master'
+    }
         steps{
           sh """
           docker rm -f nginx-test
