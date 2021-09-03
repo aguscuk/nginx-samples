@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Docker'){
     agent {
-      label 'master'
+      label 'builder1'
     }
         steps{
           sh """
