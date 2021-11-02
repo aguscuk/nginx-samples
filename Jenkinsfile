@@ -2,6 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build Docker'){
+      agent {
+        label 'builder4'
+      }
         steps{
           sh """
           hostname
